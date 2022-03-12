@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codepath.apps.restclienttemplate">
+    package="com.codepath.apps.SimpleTweet">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".TwitterApplication"
+        android:name="com.codepath.apps.SimpleTweet.TwitterApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RestClientTemplateKotlin">
+        <activity android:name="com.codepath.apps.SimpleTweet.TimelineActivity"></activity>
         <activity
-            android:name="com.codepath.apps.restclienttemplate.LoginActivity"
+            android:name="com.codepath.apps.SimpleTweet.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>

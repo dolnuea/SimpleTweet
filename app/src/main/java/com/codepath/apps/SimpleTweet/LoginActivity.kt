@@ -1,12 +1,13 @@
-package com.codepath.apps.restclienttemplate
+package com.codepath.apps.SimpleTweet
 
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.View
-import com.codepath.apps.restclienttemplate.models.SampleModel
-import com.codepath.apps.restclienttemplate.models.SampleModelDao
+import com.codepath.apps.SimpleTweet.models.SampleModel
+import com.codepath.apps.SimpleTweet.models.SampleModelDao
 import com.codepath.oauth.OAuthLoginActionBarActivity
 
 class LoginActivity : OAuthLoginActionBarActivity<TwitterClient>() {
@@ -35,6 +36,9 @@ class LoginActivity : OAuthLoginActionBarActivity<TwitterClient>() {
         // val i = Intent(this, PhotosActivity::class.java)
         // startActivity(i)
         Log.i("Luna", "Logged in successfully")
+
+        val i = Intent(this, TimelineActivity::class.java)
+        startActivity(i)
     }
 
     // OAuth authentication flow failed, handle the error
