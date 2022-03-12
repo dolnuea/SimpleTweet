@@ -50,14 +50,15 @@ class TwitterClient(context: Context) : OAuthBaseClient(
     }
 
     // CHANGE THIS
-    // DEFINE METHODS for different API endpoints here
-    fun getInterestingnessList(handler: JsonHttpResponseHandler) {
+    // DEFINE METHODS for different API endpoints here done
+    fun getHomeTimeline(handler: JsonHttpResponseHandler) {
         val apiUrl =
-            getApiUrl("?nojsoncallback=1&method=flickr.interestingness.getList")
+            getApiUrl("statuses/home_timeline.json")
 
         // Can specify query string params directly or through RequestParams.
         val params = RequestParams()
-        params.put("format", "json")
+        params.put("count", "25")
+        params.put("since_id", 1)
         client.get(apiUrl, params, handler)
     }
 
