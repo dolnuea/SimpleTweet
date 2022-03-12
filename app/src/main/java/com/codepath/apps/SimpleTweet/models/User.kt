@@ -1,4 +1,4 @@
-package com.codepath.apps.SimpleTweet
+package com.codepath.apps.SimpleTweet.models
 
 import org.json.JSONObject
 

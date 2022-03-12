@@ -1,4 +1,4 @@
-package com.codepath.apps.SimpleTweet
+package com.codepath.apps.SimpleTweet.models
 
 import org.json.JSONArray
 import org.json.JSONObject
@@ -9,7 +9,7 @@ class Tweet {
     var user: User? = null
 
     companion object {
-        fun fromJson(jsonObject: JSONObject): Tweet{
+        fun fromJson(jsonObject: JSONObject): Tweet {
             val tweet = Tweet()
             tweet.body = jsonObject.getString("text")
             tweet.createdAt = jsonObject.getString("created_at")
@@ -22,6 +22,9 @@ class Tweet {
                 tweets.add(fromJson(jsonArray.getJSONObject(i)))
             }
             return tweets
+        }
+        fun getFormattedTimestamp(time_created: String): String {
+            return TimeFormatter.getTimeDifference(time_created)
         }
     }
 }

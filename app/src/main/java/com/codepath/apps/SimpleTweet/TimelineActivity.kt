@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.codepath.apps.SimpleTweet.models.Tweet
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
-import org.json.JSONArray
 import org.json.JSONException
 
 class TimelineActivity : AppCompatActivity() {
