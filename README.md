@@ -42,7 +42,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+My greatest challenge was trying the stretched stories for persistence.
 
 ## PART 1 User Stories
 
