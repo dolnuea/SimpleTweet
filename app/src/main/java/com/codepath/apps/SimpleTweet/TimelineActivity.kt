@@ -27,6 +27,11 @@ class TimelineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timeline)
 
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setLogo(R.drawable.twitterlogowhite2)
+        supportActionBar?.setDisplayUseLogoEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
         // Lookup the swipe container view
         swipeContainer = findViewById(R.id.swipeContainer)
 
@@ -64,9 +69,24 @@ class TimelineActivity : AppCompatActivity() {
         if (item.itemId == R.id.Compose) {
             Toast.makeText(this, "Ready to compose tweet!", LENGTH_SHORT).show()
             val intent = Intent(this, ComposeActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE)
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE){
+            //get data from intent
+            val tweet = data?.getParcelableExtra("tweet") as Tweet
+
+            //update timeline
+            //modify data source of tweets
+            tweets.add(0, tweet)
+            //update adapter
+            adapter.notifyItemInserted(0)
+            rvTweets.smoothScrollToPosition(0)
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     fun populateHomeTimeline(){
@@ -104,5 +124,6 @@ class TimelineActivity : AppCompatActivity() {
     }
     companion object {
         const val TAG = "TimelineActivity"
+        val REQUEST_CODE = 100
     }
 }
